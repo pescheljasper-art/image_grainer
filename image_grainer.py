@@ -2,9 +2,9 @@ from PIL import Image, ImageDraw
 import numpy as np
 import random
 
-def image_to_dot_density(
+def image_grainer(
     input_path,
-    output_path,
+    output_name,
     dot_color=(0, 0, 0),
     background_color=(255, 255, 255),
     resize_to=(300, 200),
@@ -58,7 +58,7 @@ def image_to_dot_density(
 
     # Save
     out_name = (
-    f"dom_{dot_color[0]}-{dot_color[1]}-{dot_color[2]}"
+    f"{output_name}_{dot_color[0]}-{dot_color[1]}-{dot_color[2]}"
     f"_{resize_to[0]}-{resize_to[1]}_{max_dots_per_pixel}_{dot_radius}_"
     f"{jitter}.png"
     )
@@ -69,12 +69,10 @@ def image_to_dot_density(
 
 
 
-# Example usage:
-#for i in range(35, 65, 10):
-image_to_dot_density(
-    input_path="dom_edit.JPG",
-    output_path="city_dots.png",
-    dot_color=(38, 255, 67),
+image_grainer(
+    input_path="skyline_berlin.jpeg",
+    output_name="skyline_berlin_dots",
+    dot_color=(50, 50, 255),
     resize_to=(3000, 2000),
     max_dots_per_pixel=2.5,
     dot_radius=0.05,
