@@ -1,3 +1,6 @@
+# A Python tool that converts your latest holiday pictures into stipple/dot-density art using grayscale brightness values.
+# v1.0
+
 from PIL import Image, ImageDraw
 import numpy as np
 import random
